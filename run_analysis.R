@@ -8,63 +8,54 @@
 # 5) From the data set in step 4, creates a second, independent tidy data set with the average of 
 #    each variable for each activity and each subject.
 
+## Working on Win7 64 bit, running R-3.2.1 32 bit, since Java on my computer is 32 bit
 
-
-
-
-getwd()
 remove(list=ls())
-install.packages("xlsx")  
-install.packages("rJava") 
-# require("xlsx")
-# require("rJava")
+# install.packages("xlsx")  
+# install.packages("rJava") 
 library(xlsx)
 library(rJava)
 
 ##################################
 ##  step 0:  fetching  data     ##
 ##################################
+# download and unzip only if not at wd
+if(file.exists("./UCI HAR Dataset")){
+      strWD <- getwd()
+      dest <- gsub("/", "\\", strWD, fixed=TRUE)
+      temp <- paste(dest, "\\", sep="")
+      XTest = read.table( paste(temp,  "UCI HAR Dataset\\test\\x_test.txt"  , sep="") )
+      YTest = read.table( paste(temp,  "UCI HAR Dataset\\test\\y_test.txt"  , sep="") )#1:6
+      SubTest = read.table( paste(temp,  "UCI HAR Dataset\\test\\subject_test.txt"  , sep=""))
+      XTrain = read.table( paste(temp,  "UCI HAR Dataset\\train\\x_train.txt"  , sep="") )
+      YTrain = read.table( paste(temp,  "UCI HAR Dataset\\train\\y_train.txt"  , sep="") )#1:6
+      SubTrain = read.table( paste(temp,  "UCI HAR Dataset\\train\\subject_train.txt"  , sep=""))
+      Feat = read.table( paste(temp,  "UCI HAR Dataset\\features.txt"  , sep=""))
 
-fileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
-fileUrl
-temp <- tempfile()
-temp
-#"C:\\Users\\NAAMAD~1\\AppData\\Local\\Temp\\RtmpyqotNX\\file28e841bd19a5"
-download.file(fileUrl,temp)
+} else {
 
-##  Read 
-
-XTest = read.table(unz(temp, "UCI HAR Dataset/test/X_test.txt")) #561 measures
-dim(XTest) #2947 x 561
-class(XTest) #data.frame
-
-YTest = read.table(unz(temp, "UCI HAR Dataset/test/y_test.txt")) #1:6
-dim(YTest) #2947 x 1
-class(YTest)
-
-SubTest = read.table(unz(temp, "UCI HAR Dataset/test/subject_test.txt")) #1:30
-dim(SubTest) #2947 x 1
-class(SubTest)
-
-
-XTrain = read.table(unz(temp, "UCI HAR Dataset/train/X_train.txt")) #561 measures
-dim(XTrain)   #7352 x 561
-class(XTrain) #data.frame
-
-YTrain = read.table(unz(temp, "UCI HAR Dataset/train/y_train.txt")) #1:6
-dim(YTrain)   #7352 x 1
-class(YTrain)  #data.frame
-
-SubTrain = read.table(unz(temp, "UCI HAR Dataset/train/subject_train.txt")) #1:30
-dim(SubTrain) #7352 x 1
-class(SubTrain) #data.frame
-
-
-Feat = read.table(unz(temp, "UCI HAR Dataset/features.txt")) # 561 vars names
-dim(Feat) #561 x 2
-class(Feat) #data.frame
-
-unlink(temp)  
+      fileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
+      # dest should be wd
+      temp <- tempfile()
+      strWD <- getwd() #"F:/DataScientist/RWD"
+      dest <- gsub("/", "\\", strWD, fixed=TRUE)
+      download.file(fileUrl,temp)
+      file.copy(temp, dest)
+      oldtemp <- temp
+      s2 <- unlist(strsplit(temp,"file"))[2]
+      newtemp <- paste(dest, "\\file", s2, sep="")
+      temp <-   newtemp  
+      unlink(oldtemp)  
+      
+      XTest = read.table(unz(temp, "UCI HAR Dataset/test/X_test.txt")) #561 measures
+      YTest = read.table(unz(temp, "UCI HAR Dataset/test/y_test.txt")) #1:6
+      SubTest = read.table(unz(temp, "UCI HAR Dataset/test/subject_test.txt")) #1:30
+      XTrain = read.table(unz(temp, "UCI HAR Dataset/train/X_train.txt")) #561 measures
+      YTrain = read.table(unz(temp, "UCI HAR Dataset/train/y_train.txt")) #1:6
+      SubTrain = read.table(unz(temp, "UCI HAR Dataset/train/subject_train.txt")) #1:30
+      Feat = read.table(unz(temp, "UCI HAR Dataset/features.txt")) # 561 vars names
+      unlink(temp)
+}
 
 ##  short summary:
 ## 30 people, 6 activites, 561 vecotrs of measures
@@ -158,16 +149,13 @@ for (ind in 1:length(sNames))
       myStr21 <-  sub("-Z" ,"Z", myStr2)
       myStr22 <-  sub("-Y" ,"Y", myStr21)
       myStr3 <-  sub("-X" ,"X", myStr22)
-      
       myStr31 <-  sub(",Z" ,"Z", myStr3)
       myStr32 <-  sub(",Y" ,"Y", myStr31)
       myStr3 <-  sub(",X" ,"X", myStr32)
-      
       myStr4 <-  sub("-" ,"", myStr3)  
       myStr5 <-  sub("mean" ,"Mean", myStr4)  
       myStr6 <-  sub("max" ,"Max", myStr5)
       myStr7 <-  sub("kurto" ,"Kurto", myStr6) 
-      
       myStr8 <-  sub("meanFreq" ,"Mean", myStr7)  
       myStr9 <-  sub("iqr" ,"IQR", myStr8)
       myStr10 <-  sub("min" ,"Min", myStr9) 
@@ -202,7 +190,5 @@ mean(var3)
 
 
 ## get ready to upload
-write.table(TidyData, file = "TidyDataNRubin.txt", row.name=FALSE)
-
-
-help(write.table)
+# write.table(TidyData, file = "TidyDataNRubin.txt", row.name=FALSE)
+# help(write.table)
