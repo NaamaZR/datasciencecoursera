@@ -169,7 +169,8 @@ for (ind in 1:length(sNames))
       myStrF <-  sub("\\,g" ,"g", myStr16)  
       sNames[ind] <-  myStrF
 }
-sNames
+
+names(X) <- sNames
 #####################################################################################
 ##  step 5: From the data set in step 4, creates a second, independent tidy data   ## 
 ##  set with the average of each variable for each activity and each subject.      ##                                                       ##
@@ -180,15 +181,18 @@ class(X.dt)
 TidyData <- X.dt[, lapply(.SD, mean), by = 'Subject,Activity']
 dim(TidyData)
 #Check by claculating from X to compare with TidyData
-ptrs <-  which(X[, 479]== 1 & X[, 478]== "Standing" )
-var1 <-X[ptrs, 1]
-mean(var1)
-var2 <-X[ptrs, 2]
-mean(var2)
-var3 <-X[ptrs, 3]
-mean(var3)
+# ptrs <-  which(X[, 479]== 1 & X[, 478]== "Standing" )
+# var1 <-X[ptrs, 1]
+# mean(var1)
+# var2 <-X[ptrs, 2]
+# mean(var2)
+# var3 <-X[ptrs, 3]
+# mean(var3)
 
-
+newTD <- TidyData[order(Subject)] # sort by subjec
 ## get ready to upload
-# write.table(TidyData, file = "TidyDataNRubin.txt", row.name=FALSE)
-# help(write.table)
+#write.table(newTD, file = "TidyDataNRubin3.txt", sep="\t\t", quote=F, eol = "\n\n\n", row.name=FALSE)
+
+
+
+
