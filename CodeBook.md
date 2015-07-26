@@ -1,230 +1,149 @@
-# http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones 
-# https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip 
+<h1>CodeBook</h1>
+<h2>
+Data was downloaded: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+also called the "Samsung Data"
+</h2>
 
-# 1) Merges the training and the test sets to create one data set.
-# 2) Extracts only the measurements on the mean and standard deviation for each measurement.
-# 3) Uses descriptive activity names to name the activities in the data set
-# 4) Appropriately labels the data set with descriptive variable names.
-# 5) From the data set in step 4, creates a second, independent tidy data set with the average of 
-#    each variable for each activity and each subject.
+<h2>
+The features selected for this database come from the accelerometer and gyroscope 
+</h2>
+<p>
+There are 3-axial raw signals tAcc-XYZ and tGyro-XYZ. 
+We are expecting two main measures 
+"Acc" for accelerometer 
+"Gyro" for gyroscope 
+each in 3 coloumns for X,Y,Z.
+</p>
 
-## Working on Win7 64 bit, running R-3.2.1 32 bit, since Java on my computer is 32 bit
-## This code check if folder "UCI HAR Dataset" is at wd, if not it will download data.
+<p>
+These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. 
+Then they were filtered using a median filter and a 3rd order low pass Butterworth filter 
+with a corner frequency of 20 Hz to remove noise. 
+</p>
 
-############################
-###    by  Naama Rubin   ###
-############################
+<p>
+The acceleration signal was further splitted into two  internal acceleration components,
+body and  gravity.
+"Body" denote as "Bd", "Gravity" as "Grv" 
+this was done using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
+tBdAcc-XYZ and tGrvAcc-XYZ
+</p>
 
-remove(list=ls())
-# install.packages("xlsx")  
-# install.packages("rJava") 
-# install.packages("data.table")
-library(xlsx)
-library(rJava)
-library(data.table)
+<p>
+Subsequently, the body linear acceleration and angular velocity (gyro)
+were derived in time to obtain Jerk signals (diff was done on it, e.g. subtract).
+tBdAccJerk-XYZ and tBdGyroJerk-XYZ
+</p>
 
-##################################
-##  step 0:  fetching  data     ##
-##################################
-# download & unzip only if not at wd
-if(file.exists("./UCI HAR Dataset")){
-  strWD <- getwd()
-  dest <- gsub("/", "\\", strWD, fixed=TRUE)
-  temp <- paste(dest, "\\", sep="")
-  XTest = read.table( paste(temp,  "UCI HAR Dataset\\test\\x_test.txt"  , sep="") )
-  YTest = read.table( paste(temp,  "UCI HAR Dataset\\test\\y_test.txt"  , sep="") )#1:6
-  SubTest = read.table( paste(temp,  "UCI HAR Dataset\\test\\subject_test.txt"  , sep=""))
-  XTrain = read.table( paste(temp,  "UCI HAR Dataset\\train\\x_train.txt"  , sep="") )
-  YTrain = read.table( paste(temp,  "UCI HAR Dataset\\train\\y_train.txt"  , sep="") )#1:6
-  SubTrain = read.table( paste(temp,  "UCI HAR Dataset\\train\\subject_train.txt"  , sep=""))
-  Feat = read.table( paste(temp,  "UCI HAR Dataset\\features.txt"  , sep=""))
-  
-} else {
-  
-  fileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
-  # dest should be wd
-  temp <- tempfile()
-  strWD <- getwd() #"F:/DataScientist/RWD"
-  dest <- gsub("/", "\\", strWD, fixed=TRUE)
-  download.file(fileUrl,temp)
-  file.copy(temp, dest)
-  oldtemp <- temp
-  s2 <- unlist(strsplit(temp,"file"))[2]
-  newtemp <- paste(dest, "\\file", s2, sep="")
-  temp <-   newtemp  
-  unlink(oldtemp)  
-  
-  XTest = read.table(unz(temp, "UCI HAR Dataset/test/X_test.txt")) #561 measures
-  YTest = read.table(unz(temp, "UCI HAR Dataset/test/y_test.txt")) #1:6
-  SubTest = read.table(unz(temp, "UCI HAR Dataset/test/subject_test.txt")) #1:30
-  XTrain = read.table(unz(temp, "UCI HAR Dataset/train/X_train.txt")) #561 measures
-  YTrain = read.table(unz(temp, "UCI HAR Dataset/train/y_train.txt")) #1:6
-  SubTrain = read.table(unz(temp, "UCI HAR Dataset/train/subject_train.txt")) #1:30
-  Feat = read.table(unz(temp, "UCI HAR Dataset/features.txt")) # 561 vars names
-  unlink(temp)
-}
+<p>
+Magnitude of these three-dimensional signals were calculated using the Euclidean norm
+tBdAccMag, tGrvAccMag, tBdAccJerkMag, tBdGyroMag, tBdGyroJerkMag. 
+</p>
 
-##  short summary:
-## 30 people, 6 activites, 561 vecotrs of measures
-##  Variables: XTest, YTest, SubTest, XTrain, YTrain, SubTrain
+<p>
+These signals were used to estimate variables of the feature vector for each pattern:  
+'-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
+</p>
 
-#######################################
-##  step 1: Mergeing sets            ##
-#######################################
-colnames(XTrain)
-colnames(XTrain) <- t(Feat[2])
-colnames(XTest)  <- t(Feat[2])
+<p>
+Signals at Time Domain:
+1)    tBdAcc-XYZ                Bd (Body) was extracted from  row tAcc, 3  cols
+2)    tGrvAcc-XYZ              Grv (Gravity) was extracted from row tAcc, 3 cols
+3)    tBdAccJerk-XYZ        diff elements in tBdAcc (1), 3 cols
+4)    tBdGyro-XYZ             is the row tGyro, 3 cols
+5)    tBdGyroJerk-XYZ      diff on  tBdGyro (4), 3 cols
+6)    tBdAccMag                   Euclidean norm on tBdAcc (1) all cols to get 1 col
+7)    tGrvAccMag                 Euclidean norm on tGrvAcc (2) all cols to get 1 col
+8)    tBdAccJerkMag           Euclidean norm  on tBdAccJerk  (3) all cols to get 1 col
+9)    tBdGyroMag                Euclidean norm  on tBdGyro  (4) all cols to get 1 col
+10)  tBdGyroJerkMag         Euclidean norm  on tBdGyroJerk (5) all cols to get 1 col
+</p>
 
-#paste columns to the right
-XTest$Activity <- YTest[,1]
-XTest$Subject <- SubTest[,1]
-dim(XTest) 
-class(XTest) #data.frame
-XTrain$Activity <- YTrain[,1]
-XTrain$Subject <- SubTrain[,1]
-dim(XTrain) 
-class(XTrain) #data.frame
+<p>
+Fast Fourier Transform (FFT) was applied to some of these signals producing 
+fBdAcc-XYZ, fBdAccJerk-XYZ, fBdGyro-XYZ, fBdAccJerkMag, fBdGyroMag, fBdGyroJerkMag.
+ (Note the 'f' to indicate frequency domain signals). 
 
-#check  before combine sets.
-setdiff(names(XTrain), names(XTest))
-setdiff(names(XTest), names(XTrain))
-all(names(XTrain) == names(XTest))
+fBdAcc-XYZ                     fft on (1)
+fBdAccJerk-XYZ             fft on (3)
+fBdGyro-XYZ                  fft on (4)
+fBdAccMag                       fft on (6)
+fBdAccJerkMag               fft on (8)
+fBdGyroMag                     fft on (9)
+fBdGyroJerkMag             fft on (10)
 
-# one dataframe is glued under the other
-X <- rbind(XTrain, XTest)
-dim(X)  #10299 x 563
+</p>
 
 
-X <- X[, !duplicated(colnames(X) )]
-dim(X) 
+<p>
+Measures that were calculated from these signals:
+mean 	Mean value                  
+std	Standard deviation
+median 	median, take 50% quantile
+max	Max value
+min	Minimum value
+sma	Signal magnitude area
+energy	 Energy measure. Sum of the squares divided by the number of values. 
+iqr	Interquartile range, 25% quantile to 75% quantile
+entropy	Signal entropy
+arCoeff	Autorregresion coefficients with Burg order equal to 4
+</p>
 
+<p>
+Measures that were calculated from freq domain siganls:
+maxInds():          index of the frequency component with largest magnitude
+meanFreq():        Weighted average of the frequency components to obtain a mean frequency
+skewness():          skewness of the frequency domain signal 
+kurtosis():               kurtosis of the frequency domain signal 
+bandsEnergy():      Energy of a frequency interval within the 64 bins of the FFT of each window.
+</p>
+<p>
+Measures on two signals
+correlation():     correlation coefficient between two signals, this will denote with two upercase axial dims at end, e.g. "tGrvAccCorXZ"      
+angle():                    Angle between two vectors.
+</p>
 
-#############################################################################################################
-##    step 2: Extracts only the measurements on the mean and standard deviation for each measurement.      ##
-#############################################################################################################
-sNames <- names(X)
-class(sNames)
-length(sNames)
+<p>
+Additional vectors obtained by averaging the signals in a signal window sample. 
+These are used on the angle() variable:
 
-#Collect indecis for columns with name that contain either of  the next 3 texts
-text1 <- "mean"
-test2 <- "std"
-test3 <- "Mean"
-vec = NULL
+gravityMean
+tBodyAccMean
+tBodyAccJerkMean
+tBodyGyroMean
+</p>
 
-#scan col names and look if see "mean", "std", or "Mean", keep indecies at vec
-for (ind in 1:length(sNames)) 
-{
-  myStr <- sNames[ind]
-  if (grepl(text1, myStr) |  grepl(test2, myStr)  |  grepl(test3, myStr))
-  {
-    vec = c(vec, ind); 
-  }                         
-}
+<p>
+Two ID variables were added :
+"Subject"                              30 participents in expriment  were label by running ind from 1 to 30                 
+"Activity"                             6 activities were labled:         "Walk", "WalkUpS", "WakDn", "Sit", "Stand", "Lay"   
+</p>
 
-
-dim(X)
-EData <- X[,vec]; #Extracted Data  mean, std on measurments
-dim(EData) #10299 x 86
-
-
-###########################################################################################
-##  step 3: Uses descriptive activity names to name the activities in the data set       ##
-###########################################################################################
-# 
-vecAct <- c("Walk", "WalkUpS", "WakDn", "Sit", "Stand", "Lay")
-# identify which are the "pointer" to each index 1..6, and replace by the explict name
-for (ind in 1:6) #last two coloumns I know its not about mean or std
-{
-  X$Activity[X$Activity == ind]  <- vecAct[ind]                    
-}
-class(X$Activity)
-length(unique(X$Activity))
-
-
-#####################################################################################
-##  step 4: Appropriately labels the data set with descriptive variable names      ##
-#####################################################################################
-sNames <-  names(X)
-sNames
-#get rid of parenthesis that souldn't be as part of a name, on my opinion
-#also make some fixes e.g. mad for median is not clear , and more.
-for (ind in 1:length(sNames)) 
-{
-  myStr <- sNames[ind]
-  myStr1 <-  sub("\\)" ,"", myStr)
-  myStr2 <-  sub("\\(" ,"", myStr1)  
-  myStr21 <-  sub("-Z" ,"Z", myStr2)
-  myStr22 <-  sub("-Y" ,"Y", myStr21)
-  myStr3 <-  sub("-X" ,"X", myStr22)
-  myStr31 <-  sub(",Z" ,"Z", myStr3)
-  myStr32 <-  sub(",Y" ,"Y", myStr31)
-  myStr3 <-  sub(",X" ,"X", myStr32)
-  myStr4 <-  sub("-" ,"", myStr3)  
-  myStr5 <-  sub("mean" ,"Mean", myStr4)  
-  myStr6 <-  sub("max" ,"Max", myStr5)
-  myStr7 <-  sub("kurto" ,"Kurto", myStr6) 
-  myStr8 <-  sub("meanFreq" ,"Mean", myStr7)  
-  myStr9 <-  sub("iqr" ,"Iqr", myStr8)
-  myStr10 <-  sub("min" ,"Min", myStr9) 
-  myStr11 <-  sub("std" ,"Std", myStr10)  
-  myStr12 <-  sub("mad" ,"Med", myStr11)
-  myStr13 <-  sub("sma" ,"Sma", myStr12)
-  myStr14 <-  sub("energy" ,"Er", myStr13) 
-  ## more parenthesis are there, uneven
-  myStr15 <-  sub("\\)" ,"", myStr14)
-  myStr16 <-  sub("\\(" ,"", myStr15)  
-  myStr17 <-  sub("\\,g" ,"g", myStr16) 
-  
-  myStr18 <-  sub("Body" ,"Bd", myStr17) 
-  myStr19 <-  sub("Body" ,"Bd", myStr18) 
-  myStr20 <-  sub("Gravity" ,"Grv", myStr19)
-  myStr21 <-  sub("gravity" ,"Grv", myStr20)
-  myStr22 <-  sub("angle" ,"Ang", myStr21)
-  myStr23 <-  sub("correlation" ,"Cor", myStr22)
-  myStrF <-  sub("entropy" ,"Entropy", myStr23)
-
-  
-  sNames[ind] <-  myStrF
-}
-
-names(X) <- sNames
-#####################################################################################
-##  step 5: From the data set in step 4, creates a second, independent tidy data   ## 
-##  set with the average of each variable for each activity and each subject.      ##                                                       ##
-##################################################################################### 
-dim(X) 
-X.dt <- data.table(X)
-class(X.dt)  
-dim(X.dt)
-
-TidyData <- X.dt[, lapply(.SD, mean), by = 'Subject,Activity']
-setkey(TidyData,Subject)  #sort by subject
-
-dim(TidyData)
-#Check by claculating from X to compare with TidyData
-# ptrs <-  which(X[, 479]== 1 & X[, 478]== "Stand" ) #first subject, first ativity
-# var1 <-X[ptrs, 1]
-# (mean(var1) == TidyData[1][[3]])
-
-
-write.table(TidyData, file = "TidyDataNRubin4.txt", sep=" ", quote=F, eol = "\n", row.name=FALSE)
-
-
-#RB <- read.table("TidyDataNRubin4.txt",header=TRUE) 
-#RB
-
-
-
-
+<h1>
+The complete list of variables:
+</h1>
 # ## cols names
-# [1] "Subject"                     "Activity"                    "tBdAccMeanX"                
-# [4] "tBdAccMeanY"                 "tBdAccMeanZ"                 "tBdAccStdX"                 
-# [7] "tBdAccStdY"                  "tBdAccStdZ"                  "tBdAccMedX"                 
-# [10] "tBdAccMedY"                  "tBdAccMedZ"                  "tBdAccMaxX"                 
-# [13] "tBdAccMaxY"                  "tBdAccMaxZ"                  "tBdAccMinX"                 
-# [16] "tBdAccMinY"                  "tBdAccMinZ"                  "tBdAccSma"                  
-# [19] "tBdAccErX"                   "tBdAccErY"                   "tBdAccErZ"                  
+# [1] "Subject"                              30 participents in expriment  were label by running ind from 1 to 30                 
+# [2] "Activity"                             6 activities were labled:         "Walk", "WalkUpS", "WakDn", "Sit", "Stand", "Lay"    
+# [3]  "tBdAccMeanX"                
+# [4] "tBdAccMeanY"                 
+# [5] "tBdAccMeanZ"                 
+# [6] "tBdAccStdX"                 
+# [7] "tBdAccStdY"                  
+# [8]"tBdAccStdZ"                  
+# [9]"tBdAccMedX"                 
+# [10] "tBdAccMedY"                  
+# [11]"tBdAccMedZ"                 
+# [12] "tBdAccMaxX"                 
+# [13] "tBdAccMaxY"                 
+# [14] "tBdAccMaxZ"                
+# [15]  "tBdAccMinX"                 
+# [16] "tBdAccMinY"                 
+# [17] "tBdAccMinZ"                  
+# [18]"tBdAccSma"                  
+# [19] "tBdAccErX"                  
+# [20] "tBdAccErY"                   
+# [21]"tBdAccErZ"                  
 # [22] "tBdAccIqrX"                  "tBdAccIqrY"                  "tBdAccIqrZ"                 
 # [25] "tBdAccEntropyX"              "tBdAccEntropyY"              "tBdAccEntropyZ"             
 # [28] "tBdAccarCoeffX,1"            "tBdAccarCoeffX,2"            "tBdAccarCoeffX,3"           
