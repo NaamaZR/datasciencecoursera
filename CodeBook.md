@@ -141,9 +141,42 @@ Two ID variables were added :
 "Activity"                             6 activities </br>   
 </p>
 
-<h4>
+<h3>
+Units:
+</h3>
+<p>
+Accelleration is in  <strong>meter/(sec squared)</strong>
+Running on it mean, std, median, max, min, iqr, sma  is in <strong>meter/ (sec squared)</strong>
+</p>
+
+<p>
+Angluar velocity is in  <strong>radian / sec</strong>
+Result of running on it mean, std, median, max, min, iqr, sma, average   is in <strong>radian/sec</strong>
+</p>
+
+<p>
+Frequenchy is in  <strong> Hz / sec</strong>
+Resulat of running on it mean, std, median, max, min, iqr, sma, average  is in <strong>Hz</strong>
+</p>
+<p>
+Energy is  in <strong>Joule</strong>
+Entropy is <strong>energy per amount of substance</strong>
+</p>
+
+<p>
+skewness and kurtosis <strong>has no unit</strong>
+</p>
+<p>
+Autorregresion coefficients are in a <strong>unit circle</strong>
+</p>
+
+<p>
+Ang is in  <strong>radian</strong>
+</p>
+
+<h3>
 The complete list of variables:
-</h4>
+</h3>
 
  [1]  <strong>"Subject" </strong>       30 participents in expriment  were label by running ind from 1 to 30 </br>                
  [2]  <strong>"Activity"  </strong>        	6 activities were labled: "Walk", "WalkUpS", "WakDn", "Sit", "Stand", "Lay"</br>    
