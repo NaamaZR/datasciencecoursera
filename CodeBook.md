@@ -80,12 +80,12 @@ Signals at Frequency Domain:
 </h3>
 <ol>
 <li>fBdAcc-XYZ                 fft on (t1)  --> (f1) </li> 
-<li>fBdAccJerk-XYZ             fft on (t3)   (f2)</li> 
-<li>fBdGyro-XYZ                fft on (t4)   (f3)</li> 
-<li>fBdAccMag                  fft on (t6)   (f4)</li> 
-<li>fBdAccJerkMag              fft on (t8)   (f5)</li> 
-<li>fBdGyroMag                 fft on (t9)   (f6)</li> 
-<li>fBdGyroJerkMag             fft on (t10)  (f7)</li> 
+<li>fBdAccJerk-XYZ             fft on (t3)  -->  (f2)</li> 
+<li>fBdGyro-XYZ                fft on (t4)  -->  (f3)</li> 
+<li>fBdAccMag                  fft on (t6)  -->  (f4)</li> 
+<li>fBdAccJerkMag              fft on (t8)  -->  (f5)</li> 
+<li>fBdGyroMag                 fft on (t9)  -->  (f6)</li> 
+<li>fBdGyroJerkMag             fft on (t10) -->  (f7)</li> 
 </ol>
 
 <h3>
@@ -104,20 +104,26 @@ Measures that were calculated from these signals:
 <li>arCoeff	Autorregresion coefficients with Burg order equal to 4               </li>
 </ol>
 
-<p>
-Measures that were calculated from freq domain siganls:</br>
-maxInds():          index of the frequency component with largest magnitude</br>
-meanFreq():        Weighted average of the frequency components to obtain a mean frequency</br>
-skewness():          skewness of the frequency domain signal </br>
-kurtosis():               kurtosis of the frequency domain signal </br>
-bandsEnergy():      Energy of a frequency interval within the 64 bins of the FFT of each window.</br>
-</p>
-<p>
-Measures on two signals
-correlation():     correlation coefficient between two signals, </br>
-this will denote with two upercase axial dims at end, e.g. "tGrvAccCorXZ"  </br>    
-angle():                    Angle between two vectors.</br>
-</p>
+<h3>
+Measures that were calculated from freq domain siganls:
+</h3>
+<ol>
+<li>maxInds():          index of the frequency component with largest magnitude</li>
+<li>meanFreq():         Weighted average of the frequency components to obtain a mean frequency</li>
+<li>skewness():         skewness of the frequency domain signal </li>
+<li>kurtosis():         kurtosis of the frequency domain signal </li>
+<li>bandsEnergy():      Energy of a frequency interval within the 64 bins of the FFT of each window.</li>
+</ol>
+
+
+<h3>
+Measures on two signals:
+</h3>
+<ol>
+<li>correlation():     correlation coefficient between two signals,</br>
+this will denote with two upercase axial dims at end, e.g. "tGrvAccCorXZ"  </li>    
+<li>angle():                    Angle between two vectors.</li>
+</ol>
 
 <p>
 Additional vectors obtained by averaging the signals in a signal window sample. </br>
@@ -406,216 +412,216 @@ The complete list of variables:
  [265] <strong>"tBdGyroJerkMagarCoeff2"</strong>  Autorregresion coefficients on (t10)  burg order 2</br>     
  [266] <strong>"tBdGyroJerkMagarCoeff3" </strong> Autorregresion coefficients on (t10)  burg order 3</br>    
  [267] <strong>"tBdGyroJerkMagarCoeff4" </strong> Autorregresion coefficients on (t10)  burg order 4</br>  
- [268] <strong>"fBdAccMeanX"  </strong> </br>              
- [269] <strong>"fBdAccMeanY"  </strong></br>               
- [270] <strong>"fBdAccMeanZ" </strong></br>               
- [271] <strong>"fBdAccStdX" </strong></br>                 
- [272] <strong>"fBdAccStdY" </strong></br>                 
- [273] <strong>"fBdAccStdZ" </strong></br>                
- [274] <strong>"fBdAccMedX" </strong></br>                 
- [275] <strong>"fBdAccMedY" </strong></br>                 
- [276] <strong>"fBdAccMedZ" </strong></br>                
- [277] <strong>"fBdAccMaxX" </strong></br>                 
- [278] <strong>"fBdAccMaxY" </strong></br>                 
- [279] <strong>"fBdAccMaxZ" </strong></br>                
- [280] <strong>"fBdAccMinX" </strong></br>                 
- [281] <strong>"fBdAccMinY" </strong></br>                 
- [282] <strong>"fBdAccMinZ"</strong></br>                 
- [283] <strong>"fBdAccSma"  </strong></br>                 
- [284] <strong>"fBdAccErX"  </strong></br>                 
- [285] <strong>"fBdAccErY"  </strong></br>                
- [286] <strong>"fBdAccErZ"  </strong></br>                 
- [287] <strong>"fBdAccIqrX" </strong></br>                 
- [288] <strong>"fBdAccIqrY" </strong></br>                
- [289] <strong>"fBdAccIqrZ" </strong></br>                 
- [290] <strong>"fBdAccEntropyX" </strong></br>             
- [291] <strong>"fBdAccEntropyY" </strong></br>            
- [292] <strong>"fBdAccEntropyZ"  </strong></br>            
- [293] <strong>"fBdAccMaxIndsX" </strong></br>             
- [294] <strong>"fBdAccMaxIndsY"  </strong></br>           
- [295] <strong>"fBdAccMaxIndsZ" </strong></br>            
- [296] <strong>"fBdAccMeanFreqX" </strong></br>            
- [297] <strong>"fBdAccMeanFreqY" </strong></br>           
- [298] <strong>"fBdAccMeanFreqZ" </strong></br>            
- [299] <strong>"fBdAccskewnessX" </strong></br>            
- [300] <strong>"fBdAccKurtosisX" </strong></br>           
- [301] <strong>"fBdAccskewnessY" </strong></br>            
- [302] <strong>"fBdAccKurtosisY" </strong></br>            
- [303] <strong>"fBdAccskewnessZ" </strong></br>           
- [304] <strong>"fBdAccKurtosisZ" </strong></br>            
- [305] <strong>"fBdAccbandsEnergy-1,8" </strong></br>      
- [306] <strong>"fBdAccbandsEnergy-9,16"  </strong></br>   
- [307] <strong>"fBdAccbandsEnergy-17,24" </strong></br>    
- [308] <strong>"fBdAccbandsEnergy-25,32" </strong></br>    
- [309] <strong>"fBdAccbandsEnergy-33,40" </strong></br>   
- [310] <strong>"fBdAccbandsEnergy-41,48" </strong></br>    
- [311] <strong>"fBdAccbandsEnergy-49,56" </strong></br>    
- [312] <strong>"fBdAccbandsEnergy-57,64" </strong></br>   
- [313] <strong>"fBdAccbandsEnergy-1,16"  </strong></br>    
- [314] <strong>"fBdAccbandsEnergy-17,32"  </strong></br>   
- [315] <strong>"fBdAccbandsEnergy-33,48" </strong></br>   
- [316] <strong>"fBdAccbandsEnergy-49,64" </strong></br>    
- [317] <strong>"fBdAccbandsEnergy-1,24" </strong></br>     
- [318] <strong>"fBdAccbandsEnergy-25,48" </strong> </br>  
- [319] <strong>"fBdAccJerkMeanX" </strong></br>            
- [320] <strong>"fBdAccJerkMeanY" </strong></br>            
- [321] <strong>"fBdAccJerkMeanZ" </strong></br>          
- [322] <strong>"fBdAccJerkStdX" </strong> </br>            
- [323] <strong>"fBdAccJerkStdY" </strong> </br>            
- [324] <strong>"fBdAccJerkStdZ"  </strong>           
- [325] <strong>"fBdAccJerkMedX"</strong></br>              
- [326] <strong>"fBdAccJerkMedY" </strong></br>             
- [327] <strong>"fBdAccJerkMedZ" </strong></br>            
- [328] <strong>"fBdAccJerkMaxX" </strong></br>             
- [329] <strong>"fBdAccJerkMaxY" </strong></br>             
- [330] <strong>"fBdAccJerkMaxZ" </strong></br>            
- [331] <strong>"fBdAccJerkMinX" </strong></br>             
- [332] <strong>"fBdAccJerkMinY" </strong></br>             
- [333] <strong>"fBdAccJerkMinZ" </strong> </br>           
- [334] <strong>"fBdAccJerkSma" </strong> </br>             
- [335] <strong>"fBdAccJerkErX" </strong></br>              
- [336] <strong>"fBdAccJerkErY" </strong> </br>            
- [337] <strong>"fBdAccJerkErZ" </strong></br>              
- [338] <strong>"fBdAccJerkIqrX" </strong></br>             
- [339] <strong>"fBdAccJerkIqrY" </strong></br>            
- [340] <strong>"fBdAccJerkIqrZ"</strong></br>              
- [341] <strong>"fBdAccJerkEntropyX" </strong></br>         
- [342] <strong>"fBdAccJerkEntropyY" </strong></br>        
- [343] <strong>"fBdAccJerkEntropyZ" </strong></br>         
- [344] <strong>"fBdAccJerkMaxIndsX" </strong></br>         
- [345] <strong>"fBdAccJerkMaxIndsY" </strong></br>        
- [346] <strong>"fBdAccJerkMaxIndsZ" </strong></br>         
- [347] <strong>"fBdAccJerkMeanFreqX" </strong></br>        
- [348] <strong>"fBdAccJerkMeanFreqY" </strong></br>       
- [349] <strong>"fBdAccJerkMeanFreqZ" </strong></br>        
- [350] <strong>"fBdAccJerkskewnessX" </strong></br>        
- [351] <strong>"fBdAccJerkKurtosisX" </strong></br>       
- [352] <strong>"fBdAccJerkskewnessY" </strong></br>        
- [353] <strong>"fBdAccJerkKurtosisY" </strong></br>        
- [354] <strong>"fBdAccJerkskewnessZ"</strong></br>        
- [355] <strong>"fBdAccJerkKurtosisZ"</strong></br>        
- [356] <strong>"fBdAccJerkbandsEnergy-1,8"  </strong>  </br>
- [357] <strong>"fBdAccJerkbandsEnergy-9,16" </strong> </br>
- [358] <strong>"fBdAccJerkbandsEnergy-17,24" </strong></br>
- [359] <strong>"fBdAccJerkbandsEnergy-25,32" </strong></br>
- [360] <strong>"fBdAccJerkbandsEnergy-33,40"</strong></br>
- [361] <strong>"fBdAccJerkbandsEnergy-41,48"</strong></br> 
- [362] <strong>"fBdAccJerkbandsEnergy-49,56"</strong></br> 
- [363] <strong>"fBdAccJerkbandsEnergy-57,64"</strong></br>
- [364] <strong>"fBdAccJerkbandsEnergy-1,16" </strong> </br>
- [365] <strong>"fBdAccJerkbandsEnergy-17,32"</strong></br> 
- [366] <strong>"fBdAccJerkbandsEnergy-33,48"</strong></br>
- [367] <strong>"fBdAccJerkbandsEnergy-49,64"</strong></br> 
- [368] <strong>"fBdAccJerkbandsEnergy-1,24" </strong></br> 
- [369] <strong>"fBdAccJerkbandsEnergy-25,48"</strong></br>
- [370] <strong>"fBdGyroMeanX"  </strong></br>              
- [371] <strong>"fBdGyroMeanY" </strong></br>               
- [372] <strong>"fBdGyroMeanZ" </strong></br>              
- [373] <strong>"fBdGyroStdX" </strong></br>                
- [374] <strong>"fBdGyroStdY"</strong> </br>                
- [375] <strong>"fBdGyroStdZ"</strong></br>                
- [376] <strong>"fBdGyroMedX"</strong></br>                 
- [377] <strong>"fBdGyroMedY" </strong> </br>               
- [378] <strong>"fBdGyroMedZ" </strong> </br>              
- [379] <strong>"fBdGyroMaxX" </strong></br>                
- [380] <strong>"fBdGyroMaxY" </strong></br>                
- [381] <strong>"fBdGyroMaxZ" </strong></br>               
- [382] <strong>"fBdGyroMinX" </strong></br>                
- [383] <strong>"fBdGyroMinY" </strong></br>                
- [384] <strong>"fBdGyroMinZ" </strong></br>               
- [385] <strong>"fBdGyroSma"</strong></br>                  
- [386] <strong>"fBdGyroErX" </strong></br>                 
- [387] <strong>"fBdGyroErY" </strong> </br>               
- [388] <strong>"fBdGyroErZ" </strong> </br>               
- [389] <strong>"fBdGyroIqrX" </strong></br>                
- [390] <strong>"fBdGyroIqrY" </strong></br>               
- [391] <strong>"fBdGyroIqrZ" </strong> </br>               
- [392] <strong>"fBdGyroEntropyX"  </strong></br>           
- [393] <strong><strong>"fBdGyroEntropyY"  </strong></br>          
- [394] <strong>"fBdGyroEntropyZ"   </strong></br>          
- [395] <strong>"fBdGyroMaxIndsX"  </strong></br>           
- [396] <strong>"fBdGyroMaxIndsY" </strong> </br>          
- [397] <strong>"fBdGyroMaxIndsZ"  </strong></br>           
- [398] <strong>"fBdGyroMeanFreqX" </strong></br>           
- [399] <strong>"fBdGyroMeanFreqY" </strong> </br>         
- [400] <strong>"fBdGyroMeanFreqZ"  </strong></br>          
- [401] <strong>"fBdGyroskewnessX" </strong></br>           
- [402] <strong>"fBdGyroKurtosisX" </strong></br>          
- [403] <strong>"fBdGyroskewnessY" </strong></br>           
- [404] <strong>"fBdGyroKurtosisY" </strong></br>           
- [405] <strong>"fBdGyroskewnessZ"</strong> </br>          
- [406] <strong>"fBdGyroKurtosisZ" </strong></br>           
- [407] <strong>"fBdGyrobandsEnergy-1,8" </strong></br>     
- [408] <strong>"fBdGyrobandsEnergy-9,16"  </strong></br>  
- [409] <strong>"fBdGyrobandsEnergy-17,24" </strong></br>   
- [410] <strong>"fBdGyrobandsEnergy-25,32" </strong></br>   
- [411] <strong>"fBdGyrobandsEnergy-33,40"</strong></br>   
- [412] <strong>"fBdGyrobandsEnergy-41,48"</strong></br>    
- [413] <strong>"fBdGyrobandsEnergy-49,56"</strong></br>    
- [414] <strong>"fBdGyrobandsEnergy-57,64"</strong></br>   
- [415] <strong>"fBdGyrobandsEnergy-1,16" </strong></br>    
- [416] <strong>"fBdGyrobandsEnergy-17,32" </strong></br>   
- [417] <strong>"fBdGyrobandsEnergy-33,48"</strong></br>   
- [418] <strong>"fBdGyrobandsEnergy-49,64"</strong></br>    
- [419] <strong>"fBdGyrobandsEnergy-1,24"</strong></br>     
- [420] <strong>"fBdGyrobandsEnergy-25,48"</strong></br>   
- [421] <strong>"fBdAccMagMean"</strong> </br>              
- [422] <strong>"fBdAccMagStd" </strong></br>               
- [423] <strong>"fBdAccMagMed" </strong></br>              
- [424] <strong>"fBdAccMagMax" </strong></br>               
- [425] <strong>"fBdAccMagMin" </strong></br>               
- [426] <strong>"fBdAccMagSma" </strong></br>              
- [427] <strong>"fBdAccMagEr"  </strong></br>               
- [428] <strong>"fBdAccMagIqr" </strong></br>               
- [429] <strong>"fBdAccMagEntropy"</strong> </br>          
- [430] <strong>"fBdAccMagMaxInds" </strong></br>           
- [431] <strong>"fBdAccMagMeanFreq" </strong> </br>         
- [432] <strong>"fBdAccMagskewness"</strong></br>         
- [433] <strong>"fBdAccMagKurtosis"</strong> </br>         
- [434] <strong>"fBdBdAccJerkMagMean"  </strong> </br>      
- [435] <strong>"fBdBdAccJerkMagStd"</strong></br>         
- [436] <strong>"fBdBdAccJerkMagMed" </strong></br>         
- [437] <strong>"fBdBdAccJerkMagMax" </strong></br>         
- [438] <strong>"fBdBdAccJerkMagMin"</strong> </br>        
- [439] <strong>"fBdBdAccJerkMagSma" </strong></br>         
- [440] <strong>"fBdBdAccJerkMagEr" </strong></br>          
- [441] <strong>"fBdBdAccJerkMagIqr" </strong></br>        
- [442] <strong>"fBdBdAccJerkMagEntropy"  </strong></br>    
- [443] <strong>"fBdBdAccJerkMagMaxInds" </strong></br>     
- [444] <strong>"fBdBdAccJerkMagMeanFreq"</strong></br>    
- [445] <strong>"fBdBdAccJerkMagskewness"</strong></br>     
- [446] <strong>"fBdBdAccJerkMagKurtosis"</strong></br>     
- [447] <strong>"fBdBdGyroMagMean" </strong> </br>         
- [448] <strong>"fBdBdGyroMagStd" </strong></br>            
- [449] <strong>"fBdBdGyroMagMed" </strong></br>            
- [450] <strong>"fBdBdGyroMagMax" </strong></br>           
- [451] <strong>"fBdBdGyroMagMin"</strong></br>             
- [452] <strong>"fBdBdGyroMagSma"</strong></br>             
- [453] <strong>"fBdBdGyroMagEr" </strong></br>            
- [454] <strong>"fBdBdGyroMagIqr"  </strong> </br>          
- [455] <strong>"fBdBdGyroMagEntropy" </strong></br>        
- [456] <strong>"fBdBdGyroMagMaxInds" </strong> </br>      
- [457] <strong>"fBdBdGyroMagMeanFreq" </strong></br>       
- [458] <strong>"fBdBdGyroMagskewness" </strong></br>       
- [459] <strong>"fBdBdGyroMagKurtosis" </strong></br>      
- [460] <strong>"fBdBdGyroJerkMagMean" </strong></br>       
- [461] <strong>"fBdBdGyroJerkMagStd" </strong> </br>       
- [462] <strong>"fBdBdGyroJerkMagMed"</strong></br>        
- [463] <strong>"fBdBdGyroJerkMagMax"</strong></br>         
- [464] <strong>"fBdBdGyroJerkMagMin"</strong></br>         
- [465] <strong>"fBdBdGyroJerkMagSma" </strong></br>       
- [466] <strong>"fBdBdGyroJerkMagEr" </strong></br>         
- [467] <strong>"fBdBdGyroJerkMagIqr" </strong> </br>       
- [468] <strong>"fBdBdGyroJerkMagEntropy" </strong></br>   
- [469] <strong>"fBdBdGyroJerkMagMaxInds" </strong></br>    
- [470] <strong>"fBdBdGyroJerkMagMeanFreq"</strong></br>    
- [471] <strong>"fBdBdGyroJerkMagskewness" </strong></br>  
- [472] <strong>"fBdBdGyroJerkMagKurtosis"  </strong></br>  
- [473] <strong>"AngtBdAccMeanGrv" </strong></br>           
- [474] <strong>"AngtBdAccJerkMeanGrvMean" </strong> </br> 
- [475] <strong>"AngtBdGyroMeanGrvMean" </strong></br>      
- [476] <strong>"AngtBdGyroJerkMeanGrvMean"  </strong></br> 
- [477] <strong>"AngXGrvMean" </strong> </br>              
- [478] <strong>"AngYGrvMean" </strong></br>               
- [478] <strong>"AngZGrvMean" </strong></br>               
+ [268] <strong>"fBdAccMeanX"  </strong>           mean on (f1) (upper list, freq) X axis  </br>               
+ [269] <strong>"fBdAccMeanY"  </strong>           mean on (f1) Y axis  </br>                
+ [270] <strong>"fBdAccMeanZ" </strong>            mean on (f1) Z axis  </br>                
+ [271] <strong>"fBdAccStdX" </strong>             std on (f1) X axis  </br>                 
+ [272] <strong>"fBdAccStdY" </strong>             std on (f1) Y axis  </br>                 
+ [273] <strong>"fBdAccStdZ" </strong>             std on (f1) Z axis  </br>                
+ [274] <strong>"fBdAccMedX" </strong>             median on (f1) X axis  </br>                 
+ [275] <strong>"fBdAccMedY" </strong>             median on (f1) Y axis  </br>                 
+ [276] <strong>"fBdAccMedZ" </strong>             median on (f1) Z axis  </br>               
+ [277] <strong>"fBdAccMaxX" </strong>             max on (f1) X axis  </br>                 
+ [278] <strong>"fBdAccMaxY" </strong>             max on (f1) Y axis  </br>                 
+ [279] <strong>"fBdAccMaxZ" </strong>             max on (f1) Z axis  </br>                
+ [280] <strong>"fBdAccMinX" </strong>             min on (f1) X axis  </br>                 
+ [281] <strong>"fBdAccMinY" </strong>             min on (f1) Y axis  </br>                 
+ [282] <strong>"fBdAccMinZ"</strong>              min on (f1) Z axis  </br>                 
+ [283] <strong>"fBdAccSma"  </strong>             Signal Magintude Area on (f1) all axis</br>                  
+ [284] <strong>"fBdAccErX"  </strong>             Energy measure on (f1) X axis</br>               
+ [285] <strong>"fBdAccErY"  </strong>             Energy measure on (f1) Y axis</br>                
+ [286] <strong>"fBdAccErZ"  </strong>             Energy measure on (f1) Z axis</br>                
+ [287] <strong>"fBdAccIqrX" </strong>             IQR  on (f1) X axis</br>                 
+ [288] <strong>"fBdAccIqrY" </strong>             IQR  on (f1) Y axis</br>               
+ [289] <strong>"fBdAccIqrZ" </strong>             IQR  on (f1) Z axis</br>                 
+ [290] <strong>"fBdAccEntropyX" </strong>         Entropy  on (f1) X axis </br>              
+ [291] <strong>"fBdAccEntropyY" </strong>         Entropy  on (f1) Y axis </br>             
+ [292] <strong>"fBdAccEntropyZ"  </strong>        Entropy  on (f1) Z axis </br>             
+ [293] <strong>"fBdAccMaxIndsX" </strong>         index of the frequency component with largest magnitude on (f1) X axis</br>             
+ [294] <strong>"fBdAccMaxIndsY"  </strong>        index of the frequency component with largest magnitude on (f1) Y axis</br>           
+ [295] <strong>"fBdAccMaxIndsZ" </strong>         index of the frequency component with largest magnitude on (f1) Z axis</br>            
+ [296] <strong>"fBdAccMeanFreqX" </strong>        Weighted average of the frequency components to obtain a mean frequency on (f1) X axis</br>            
+ [297] <strong>"fBdAccMeanFreqY" </strong>        Weighted average of the frequency components to obtain a mean frequency on (f1) Y axis</br>          
+ [298] <strong>"fBdAccMeanFreqZ" </strong>        Weighted average of the frequency components to obtain a mean frequency on (f1) Z axis</br>            
+ [299] <strong>"fBdAccskewnessX" </strong>        Skewness on (f1) X axis</br>            
+ [300] <strong>"fBdAccKurtosisX" </strong>        Kurtosis on (f1) X axis</br>           
+ [301] <strong>"fBdAccskewnessY" </strong>        Skewness on (f1) Y axis</br>           
+ [302] <strong>"fBdAccKurtosisY" </strong>        Kurtosis on (f1) Y axis</br>            
+ [303] <strong>"fBdAccskewnessZ" </strong>        Skewness on (f1) Z axis</br>          
+ [304] <strong>"fBdAccKurtosisZ" </strong>                   
+ [305] <strong>"fBdAccbandsEnergy-1,8" </strong>  Energy of Interval from (f1)</br>      
+ [306] <strong>"fBdAccbandsEnergy-9,16"  </strong>Energy of Interval from (f1)</br> 
+ [307] <strong>"fBdAccbandsEnergy-17,24" </strong>Energy of Interval from (f1)</br>    
+ [308] <strong>"fBdAccbandsEnergy-25,32" </strong>Energy of Interval from (f1)</br>  
+ [309] <strong>"fBdAccbandsEnergy-33,40" </strong>Energy of Interval from (f1)</br>  
+ [310] <strong>"fBdAccbandsEnergy-41,48" </strong>Energy of Interval from (f1)</br> 
+ [311] <strong>"fBdAccbandsEnergy-49,56" </strong>Energy of Interval from (f1)</br>   
+ [312] <strong>"fBdAccbandsEnergy-57,64" </strong>Energy of Interval from (f1)</br>  
+ [313] <strong>"fBdAccbandsEnergy-1,16"  </strong>Energy of Interval from (f1)</br>   
+ [314] <strong>"fBdAccbandsEnergy-17,32"  </strong>Energy of Interval from (f1)</br>  
+ [315] <strong>"fBdAccbandsEnergy-33,48" </strong>Energy of Interval from (f1)</br>   
+ [316] <strong>"fBdAccbandsEnergy-49,64" </strong>Energy of Interval from (f1)</br>   
+ [317] <strong>"fBdAccbandsEnergy-1,24" </strong> Energy of Interval from (f1)</br>     
+ [318] <strong>"fBdAccbandsEnergy-25,48" </strong>Energy of Interval from (f1)</br>  
+ [319] <strong>"fBdAccJerkMeanX" </strong>    mean on (f2) (upper list, freq) X axis  </br>            
+ [320] <strong>"fBdAccJerkMeanY" </strong>    mean on (f2) Y axis  </br>            
+ [321] <strong>"fBdAccJerkMeanZ" </strong>    mean on (f2) Z axis  </br>          
+ [322] <strong>"fBdAccJerkStdX" </strong>     std on (f2) X axis  </br>           
+ [323] <strong>"fBdAccJerkStdY" </strong>     std on (f2) Y axis  </br>            
+ [324] <strong>"fBdAccJerkStdZ"  </strong>    std on (f2) Z axis  </br>           
+ [325] <strong>"fBdAccJerkMedX"</strong>      median on (f2) X axis  </br>              
+ [326] <strong>"fBdAccJerkMedY" </strong      median on (f2) Y axis  </br>            
+ [327] <strong>"fBdAccJerkMedZ" </strong>     median on (f2) Z axis  </br>           
+ [328] <strong>"fBdAccJerkMaxX" </strong>     max on (f2) X axis  </br>             
+ [329] <strong>"fBdAccJerkMaxY" </strong>     max on (f2) Y axis  </br>             
+ [330] <strong>"fBdAccJerkMaxZ" </strong>     max on (f2) Z axis  </br>            
+ [331] <strong>"fBdAccJerkMinX" </strong>     min on (f2) X axis  </br>             
+ [332] <strong>"fBdAccJerkMinY" </strong>     min on (f2) Y axis  </br>             
+ [333] <strong>"fBdAccJerkMinZ" </strong>     min on (f2) Z axis  </br>           
+ [334] <strong>"fBdAccJerkSma" </strong>      Signal Magintude Area on (f2) all axis</br>           
+ [335] <strong>"fBdAccJerkErX" </strong>      Energy measure on (f2) X axis</br>              
+ [336] <strong>"fBdAccJerkErY" </strong>      Energy measure on (f2) Y axis</br>             
+ [337] <strong>"fBdAccJerkErZ" </strong>      Energy measure on (f2) Z axis</br>               
+ [338] <strong>"fBdAccJerkIqrX" </strong>     IQR  on (f2) X axis</br>             
+ [339] <strong>"fBdAccJerkIqrY" </strong>     IQR  on (f2) Y axis</br>             
+ [340] <strong>"fBdAccJerkIqrZ"</strong>      IQR  on (f2) Z axis</br>              
+ [341] <strong>"fBdAccJerkEntropyX" </strong> Entropy  on (f2) X axis </br>         
+ [342] <strong>"fBdAccJerkEntropyY" </strong> Entropy  on (f2) Y axis </br>        
+ [343] <strong>"fBdAccJerkEntropyZ" </strong> Entropy  on (f2) Z axis </br>         
+ [344] <strong>"fBdAccJerkMaxIndsX" </strong> index of the frequency component with largest magnitude on (f2)  X axis</br>          
+ [345] <strong>"fBdAccJerkMaxIndsY" </strong> index of the frequency component with largest magnitude on (f2)  Y axis</br>       
+ [346] <strong>"fBdAccJerkMaxIndsZ" </strong> index of the frequency component with largest magnitude on (f2)  Z axis</br>         
+ [347] <strong>"fBdAccJerkMeanFreqX" </strong> Weighted average of the frequency components to obtain a mean frequency on (f2) X axis</br>         
+ [348] <strong>"fBdAccJerkMeanFreqY" </strong> Weighted average of the frequency components to obtain a mean frequency on (f2) Y axis</br>        
+ [349] <strong>"fBdAccJerkMeanFreqZ" </strong> Weighted average of the frequency components to obtain a mean frequency on (f2) Z axis</br>        
+ [350] <strong>"fBdAccJerkskewnessX" </strong> Skewness on (f2) X axis</br>         
+ [351] <strong>"fBdAccJerkKurtosisX" </strong> Kurtosis on (f2) X axis</br>      
+ [352] <strong>"fBdAccJerkskewnessY" </strong> Skewness on (f2) Y axis</br>        
+ [353] <strong>"fBdAccJerkKurtosisY" </strong> Kurtosis on (f2) Y axis</br>        
+ [354] <strong>"fBdAccJerkskewnessZ"</strong>  Skewness on (f2) Z axis</br>         
+ [355] <strong>"fBdAccJerkKurtosisZ"</strong>  Kurtosis on (f2) Z axis</br>        
+ [356] <strong>"fBdAccJerkbandsEnergy-1,8"  </strong>  Energy of Interval from (f2)</br>
+ [357] <strong>"fBdAccJerkbandsEnergy-9,16" </strong>  Energy of Interval from (f2)</br>
+ [358] <strong>"fBdAccJerkbandsEnergy-17,24" </strong> Energy of Interval from (f2)</br>
+ [359] <strong>"fBdAccJerkbandsEnergy-25,32" </strong> Energy of Interval from (f2)</br>
+ [360] <strong>"fBdAccJerkbandsEnergy-33,40"</strong>  Energy of Interval from (f2)</br>
+ [361] <strong>"fBdAccJerkbandsEnergy-41,48"</strong>  Energy of Interval from (f2)</br> 
+ [362] <strong>"fBdAccJerkbandsEnergy-49,56"</strong>  Energy of Interval from (f2)</br> 
+ [363] <strong>"fBdAccJerkbandsEnergy-57,64"</strong>  Energy of Interval from (f2)</br>
+ [364] <strong>"fBdAccJerkbandsEnergy-1,16" </strong>  Energy of Interval from (f2)</br>
+ [365] <strong>"fBdAccJerkbandsEnergy-17,32"</strong>  Energy of Interval from (f2)</br>
+ [366] <strong>"fBdAccJerkbandsEnergy-33,48"</strong>  Energy of Interval from (f2)</br>
+ [367] <strong>"fBdAccJerkbandsEnergy-49,64"</strong>  Energy of Interval from (f2)</br> 
+ [368] <strong>"fBdAccJerkbandsEnergy-1,24" </strong>  Energy of Interval from (f2)</br> 
+ [369] <strong>"fBdAccJerkbandsEnergy-25,48"</strong>  Energy of Interval from (f2)</br>
+ [370] <strong>"fBdGyroMeanX"  </strong>                mean on (f3) (upper list, freq) X axis </br>               
+ [371] <strong>"fBdGyroMeanY" </strong>                 mean on (f3) Y axis </br>               
+ [372] <strong>"fBdGyroMeanZ" </strong>                 mean on (f3) Z axis </br>             
+ [373] <strong>"fBdGyroStdX" </strong>                  std on (f3) X axis  </br>                
+ [374] <strong>"fBdGyroStdY"</strong>                   std on (f3) Y axis  </br>                
+ [375] <strong>"fBdGyroStdZ"</strong>                   std on (f3) Z axis  </br>                
+ [376] <strong>"fBdGyroMedX"</strong>                   medain on (f3) X axis  </br>                 
+ [377] <strong>"fBdGyroMedY" </strong>                  medain on (f3) Y axis  </br>               
+ [378] <strong>"fBdGyroMedZ" </strong>                  medain on (f3) Z axis  </br>               
+ [379] <strong>"fBdGyroMaxX" </strong>                  max on (f3) X axis  </br>                 
+ [380] <strong>"fBdGyroMaxY" </strong>                  max on (f3) Y axis  </br>                
+ [381] <strong>"fBdGyroMaxZ" </strong>                  max on (f3) Z axis  </br>               
+ [382] <strong>"fBdGyroMinX" </strong>                  min on (f3) X axis  </br>                
+ [383] <strong>"fBdGyroMinY" </strong>                  min on (f3) Y axis  </br>                
+ [384] <strong>"fBdGyroMinZ" </strong>                  min on (f3) Z axis  </br>               
+ [385] <strong>"fBdGyroSma"</strong>                    Signal Magintude Area on (f3) all axis</br>                  
+ [386] <strong>"fBdGyroErX" </strong>                   Energy measure on (f3) X axis</br>                 
+ [387] <strong>"fBdGyroErY" </strong>                   Energy measure on (f3) Y axis</br>              
+ [388] <strong>"fBdGyroErZ" </strong>                   Energy measure on (f3) Z axis</br>              
+ [389] <strong>"fBdGyroIqrX" </strong>                  IQR  on (f3) X axis</br>                 
+ [390] <strong>"fBdGyroIqrY" </strong>                  IQR  on (f3) Y axis</br>               
+ [391] <strong>"fBdGyroIqrZ" </strong>                  IQR  on (f3) Z axis</br>                
+ [392] <strong>"fBdGyroEntropyX"  </strong>             Entropy  on (f3) X axis </br>            
+ [393] <strong>"fBdGyroEntropyY"  </strong>             Entropy  on (f3) Y axis </br>           
+ [394] <strong>"fBdGyroEntropyZ"   </strong>            Entropy  on (f3) Z axis </br>            
+ [395] <strong>"fBdGyroMaxIndsX"  </strong>  index of the frequency component with largest magnitude on (f3)  X axis</br>            
+ [396] <strong>"fBdGyroMaxIndsY"  </strong>  index of the frequency component with largest magnitude on (f3)  Y axis</br>           
+ [397] <strong>"fBdGyroMaxIndsZ"  </strong>  index of the frequency component with largest magnitude on (f3)  Z axis</br>           
+ [398] <strong>"fBdGyroMeanFreqX" </strong>  Weighted average of the frequency components to obtain a mean frequency on (f3) X axis</br>           
+ [399] <strong>"fBdGyroMeanFreqY" </strong>  Weighted average of the frequency components to obtain a mean frequency on (f3) Y axis</br>        
+ [400] <strong>"fBdGyroMeanFreqZ"  </strong> Weighted average of the frequency components to obtain a mean frequency on(f3)  Z axis</br>          
+ [401] <strong>"fBdGyroskewnessX" </strong>  Skewness on (f3) X axis</br>          
+ [402] <strong>"fBdGyroKurtosisX" </strong>  Kurtosis on (f3) X axis</br>          
+ [403] <strong>"fBdGyroskewnessY" </strong>  Skewness on (f3) Y axis</br>           
+ [404] <strong>"fBdGyroKurtosisY" </strong>  Kurtosis on (f3) Y axis</br>            
+ [405] <strong>"fBdGyroskewnessZ"</strong>   Skewness on (f3) Z axis</br>         
+ [406] <strong>"fBdGyroKurtosisZ" </strong>  Kurtosis on (f3) Z axis</br>           
+ [407] <strong>"fBdGyrobandsEnergy-1,8"     </strong> Energy of Interval from (f3)</br>     
+ [408] <strong>"fBdGyrobandsEnergy-9,16"    </strong> Energy of Interval from (f3)</br>  
+ [409] <strong>"fBdGyrobandsEnergy-17,24"   </strong> Energy of Interval from (f3)</br>   
+ [410] <strong>"fBdGyrobandsEnergy-25,32"   </strong> Energy of Interval from (f3)</br>   
+ [411] <strong>"fBdGyrobandsEnergy-33,40"   </strong> Energy of Interval from (f3)</br>   
+ [412] <strong>"fBdGyrobandsEnergy-41,48"   </strong> Energy of Interval from (f3)</br>     
+ [413] <strong>"fBdGyrobandsEnergy-49,56"   </strong> Energy of Interval from (f3)</br>     
+ [414] <strong>"fBdGyrobandsEnergy-57,64"   </strong> Energy of Interval from (f3)</br>    
+ [415] <strong>"fBdGyrobandsEnergy-1,16"    </strong> Energy of Interval from (f3)</br>     
+ [416] <strong>"fBdGyrobandsEnergy-17,32"   </strong> Energy of Interval from (f3)</br>    
+ [417] <strong>"fBdGyrobandsEnergy-33,48"   </strong> Energy of Interval from (f3)</br>    
+ [418] <strong>"fBdGyrobandsEnergy-49,64"   </strong> Energy of Interval from (f3)</br>     
+ [419] <strong>"fBdGyrobandsEnergy-1,24"    </strong> Energy of Interval from (f3)</br>      
+ [420] <strong>"fBdGyrobandsEnergy-25,48"   </strong> Energy of Interval from (f3)</br>    
+ [421] <strong>"fBdAccMagMean"</strong>     mean on (f4) (upper list, freq) </br>              
+ [422] <strong>"fBdAccMagStd" </strong>     std on (f4)     </br>               
+ [423] <strong>"fBdAccMagMed" </strong>     median on (f4)  </br>             
+ [424] <strong>"fBdAccMagMax" </strong>     max on (f4)     </br>               
+ [425] <strong>"fBdAccMagMin" </strong>     min on (f4)     </br>                
+ [426] <strong>"fBdAccMagSma" </strong>     Signal Magintude Area on (f4) </br>             
+ [427] <strong>"fBdAccMagEr"  </strong>     Energy measure on (f4) </br>               
+ [428] <strong>"fBdAccMagIqr" </strong>     IQR  on (f4) </br>               
+ [429] <strong>"fBdAccMagEntropy"</strong>  Entropy  on (f4) </br>         
+ [430] <strong>"fBdAccMagMaxInds" </strong>  index of the frequency component with largest magnitude on (f4)</br>               
+ [431] <strong>"fBdAccMagMeanFreq" </strong> Weighted average of the frequency components to obtain a mean frequency on (f4)</br>         
+ [432] <strong>"fBdAccMagskewness"</strong>  Skewness on (f4) </br>         
+ [433] <strong>"fBdAccMagKurtosis"</strong>  Kurtosis on (f4) </br>           
+ [434] <strong>"fBdBdAccJerkMagMean"  </strong> mean on (f5) (upper list, freq) </br>       
+ [435] <strong>"fBdBdAccJerkMagStd"</strong>       std on (f5)  </br>          
+ [436] <strong>"fBdBdAccJerkMagMed" </strong>      median on (f5)  </br>           
+ [437] <strong>"fBdBdAccJerkMagMax" </strong>      max on (f5)     </br>           
+ [438] <strong>"fBdBdAccJerkMagMin"</strong>       min on (f5)     </br>          
+ [439] <strong>"fBdBdAccJerkMagSma" </strong>      Signal Magintude Area on (f5)</br>         
+ [440] <strong>"fBdBdAccJerkMagEr" </strong>       Energy measure on (f5) </br>        
+ [441] <strong>"fBdBdAccJerkMagIqr" </strong>      IQR  on (f5) </br>        
+ [442] <strong>"fBdBdAccJerkMagEntropy"  </strong> Entropy  on (f5) </br>       
+ [443] <strong>"fBdBdAccJerkMagMaxInds" </strong>  index of the frequency component with largest magnitude on (f5)</br>      
+ [444] <strong>"fBdBdAccJerkMagMeanFreq"</strong>  Weighted average of the frequency components to obtain a mean frequency on (f5)</br>    
+ [445] <strong>"fBdBdAccJerkMagskewness"</strong>  Skewness on (f5) </br>      
+ [446] <strong>"fBdBdAccJerkMagKurtosis"</strong>  Kurtosis on (f5) </br>     
+ [447] <strong>"fBdBdGyroMagMean" </strong>          mean on (f6) (upper list, freq) </br>        
+ [448] <strong>"fBdBdGyroMagStd"  </strong>          std on  (f6)  </br>            
+ [449] <strong>"fBdBdGyroMagMed" </strong>           median on (f6)  </br>            
+ [450] <strong>"fBdBdGyroMagMax" </strong>           max on (f6)     </br>          
+ [451] <strong>"fBdBdGyroMagMin"</strong>            min on (f6)     </br>            
+ [452] <strong>"fBdBdGyroMagSma"</strong>            Signal Magintude Area on (f6) </br>              
+ [453] <strong>"fBdBdGyroMagEr" </strong>            Energy measure on (f6) </br>           
+ [454] <strong>"fBdBdGyroMagIqr"  </strong>          IQR  on (f6) </br>        
+ [455] <strong>"fBdBdGyroMagEntropy" </strong>       Entropy  on (f6) </br>       
+ [456] <strong>"fBdBdGyroMagMaxInds" </strong>     index of the frequency component with largest magnitude on (f6)</br>      
+ [457] <strong>"fBdBdGyroMagMeanFreq" </strong>    Weighted average of the frequency components to obtain a mean frequency on(f6)</br>        
+ [458] <strong>"fBdBdGyroMagskewness" </strong>    Skewness on (f6) </br>      
+ [459] <strong>"fBdBdGyroMagKurtosis" </strong>    Kurtosis on (f6) </br>      
+ [460] <strong>"fBdBdGyroJerkMagMean" </strong>    mean on (f7) (upper list, freq) </br>      
+ [461] <strong>"fBdBdGyroJerkMagStd" </strong>     std on (f7)  </br>     
+ [462] <strong>"fBdBdGyroJerkMagMed"</strong>      median on (f7)  </br>        
+ [463] <strong>"fBdBdGyroJerkMagMax"</strong>      max on (f7)     </br>         
+ [464] <strong>"fBdBdGyroJerkMagMin"</strong>      min on (f7)     </br>         
+ [465] <strong>"fBdBdGyroJerkMagSma" </strong>     Signal Magintude Area on (f7)</br>       
+ [466] <strong>"fBdBdGyroJerkMagEr" </strong>      Energy measure on (f7) </br>         
+ [467] <strong>"fBdBdGyroJerkMagIqr" </strong>     IQR  on (f7) </br>      
+ [468] <strong>"fBdBdGyroJerkMagEntropy" </strong> Entropy  on (f7) </br>  
+ [469] <strong>"fBdBdGyroJerkMagMaxInds" </strong> index of the frequency component with largest magnitude on (f7)</br>     
+ [470] <strong>"fBdBdGyroJerkMagMeanFreq"</strong>  Weighted average of the frequency components to obtain a mean frequency on(f7)</br>     
+ [471] <strong>"fBdBdGyroJerkMagskewness" </strong> Skewness on (f7) </br> 
+ [472] <strong>"fBdBdGyroJerkMagKurtosis"  </strong>Kurtosis on (f7) </br> 
+ [473] <strong>"AngtBdAccMeanGrv" </strong> Ang between Body Acc and MeanGrv</br>           
+ [474] <strong>"AngtBdAccJerkMeanGrvMean" </strong> Ang between Body Acc Jerk Mean and GrvityMean</br> 
+ [475] <strong>"AngtBdGyroMeanGrvMean" </strong>    Ang between Body Gyro Mean and GrvityMean</br>      
+ [476] <strong>"AngtBdGyroJerkMeanGrvMean"  </strong>Ang between Body Gyro Jerk Mean and GrvityMean</br> 
+ [477] <strong>"AngXGrvMean" </strong> Ang between X GrvityMean</br>              
+ [478] <strong>"AngYGrvMean" </strong>Ang between Y GrvityMean</br>               
+ [478] <strong>"AngZGrvMean" </strong>Ang between Z GrvityMean</br>               
 
