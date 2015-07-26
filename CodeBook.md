@@ -8,11 +8,11 @@ also called the "Samsung Data"
 The features selected for this database come from the accelerometer and gyroscope 
 </h2>
 <p>
-There are 3-axial raw signals tAcc-XYZ and tGyro-XYZ. 
-We are expecting two main measures 
+There are 3-axial raw signals <strong>tAcc-XYZ</strong> and <strong>tGyro-XYZ</strong>. 
+<strong>We are expecting two main measures 
 "Acc" for accelerometer 
 "Gyro" for gyroscope 
-each in 3 coloumns for X,Y,Z.
+each in 3 coloumns for X,Y,Z.</strong>
 </p>
 
 <p>
@@ -22,9 +22,10 @@ with a corner frequency of 20 Hz to remove noise.
 </p>
 
 <p>
+<strong>
 The acceleration signal was further splitted into two  internal acceleration components,
 body and  gravity.
-"Body" denote as "Bd", "Gravity" as "Grv" 
+"Body" denote as "Bd", "Gravity" as "Grv" </strong>
 this was done using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
 tBdAcc-XYZ and tGrvAcc-XYZ
 </p>
@@ -50,10 +51,10 @@ These signals were used to estimate variables of the feature vector for each pat
 Signals at Time Domain:
 </h3>
 <ol>
-<li>   tBdAcc-XYZ              Bd (Body) was extracted from  row tAcc, 3  cols           </li> 
-<li>   tGrvAcc-XYZ             Grv (Gravity) was extracted from row tAcc, 3 cols         </li> 
+<li>   tBdAcc-XYZ              Bd (Body) was extracted from  raw tAcc, 3  cols           </li> 
+<li>   tGrvAcc-XYZ             Grv (Gravity) was extracted from raw tAcc, 3 cols         </li> 
 <li>   tBdAccJerk-XYZ          diff elements in tBdAcc (1), 3 cols                       </li> 
-<li>   tBdGyro-XYZ             is the row tGyro, 3 cols                                  </li> 
+<li>   tBdGyro-XYZ             is the raw tGyro, 3 cols                                  </li> 
 <li>   tBdGyroJerk-XYZ         diff on  tBdGyro (4), 3 cols                              </li> 
 <li>   tBdAccMag               Euclidean norm on tBdAcc (1) all cols to get 1 col        </li> 
 <li>   tGrvAccMag              Euclidean norm on tGrvAcc (2) all cols to get 1 col       </li> 
@@ -129,55 +130,109 @@ Two ID variables were added :
 <h4>
 The complete list of variables:
 </h4>
-# ## cols names
-# [1] "Subject"         30 participents in expriment  were label by running ind from 1 to 30                 
-# [2] "Activity"        6 activities were labled:         "Walk", "WalkUpS", "WakDn", "Sit", "Stand", "Lay"    
-# [3]  "tBdAccMeanX"                
-# [4] "tBdAccMeanY"                 
-# [5] "tBdAccMeanZ"                 
-# [6] "tBdAccStdX"                 
-# [7] "tBdAccStdY"                  
-# [8]"tBdAccStdZ"                  
-# [9]"tBdAccMedX"                 
+# cols names
+# [1]  "Subject"         30 participents in expriment  were label by running ind from 1 to 30                 
+# [2]  "Activity"        6 activities were labled: "Walk", "WalkUpS", "WakDn", "Sit", "Stand", "Lay"    
+# [3]  "tBdAccMeanX"     mean on t 1 X axis            
+# [4]  "tBdAccMeanY"     mean on t 1 Y axis             
+# [5]  "tBdAccMeanZ"     mean on t 1 Z axis                
+# [6]  "tBdAccStdX"                 
+# [7]  "tBdAccStdY"                  
+# [8]  "tBdAccStdZ"                  
+# [9]  "tBdAccMedX"                 
 # [10] "tBdAccMedY"                  
-# [11]"tBdAccMedZ"                 
+# [11] "tBdAccMedZ"                 
 # [12] "tBdAccMaxX"                 
 # [13] "tBdAccMaxY"                 
 # [14] "tBdAccMaxZ"                
-# [15]  "tBdAccMinX"                 
+# [15] "tBdAccMinX"                 
 # [16] "tBdAccMinY"                 
 # [17] "tBdAccMinZ"                  
-# [18]"tBdAccSma"                  
+# [18] "tBdAccSma"                  
 # [19] "tBdAccErX"                  
 # [20] "tBdAccErY"                   
-# [21]"tBdAccErZ"                  
-# [22] "tBdAccIqrX"                  "tBdAccIqrY"                  "tBdAccIqrZ"                 
-# [25] "tBdAccEntropyX"              "tBdAccEntropyY"              "tBdAccEntropyZ"             
-# [28] "tBdAccarCoeffX,1"            "tBdAccarCoeffX,2"            "tBdAccarCoeffX,3"           
-# [31] "tBdAccarCoeffX,4"            "tBdAccarCoeffY,1"            "tBdAccarCoeffY,2"           
-# [34] "tBdAccarCoeffY,3"            "tBdAccarCoeffY,4"            "tBdAccarCoeffZ,1"           
-# [37] "tBdAccarCoeffZ,2"            "tBdAccarCoeffZ,3"            "tBdAccarCoeffZ,4"           
-# [40] "tBdAccCorXY"                 "tBdAccCorXZ"                 "tBdAccCorYZ"                
-# [43] "tGrvAccMeanX"                "tGrvAccMeanY"                "tGrvAccMeanZ"               
-# [46] "tGrvAccStdX"                 "tGrvAccStdY"                 "tGrvAccStdZ"                
-# [49] "tGrvAccMedX"                 "tGrvAccMedY"                 "tGrvAccMedZ"                
-# [52] "tGrvAccMaxX"                 "tGrvAccMaxY"                 "tGrvAccMaxZ"                
-# [55] "tGrvAccMinX"                 "tGrvAccMinY"                 "tGrvAccMinZ"                
-# [58] "tGrvAccSma"                  "tGrvAccErX"                  "tGrvAccErY"                 
-# [61] "tGrvAccErZ"                  "tGrvAccIqrX"                 "tGrvAccIqrY"                
-# [64] "tGrvAccIqrZ"                 "tGrvAccEntropyX"             "tGrvAccEntropyY"            
-# [67] "tGrvAccEntropyZ"             "tGrvAccarCoeffX,1"           "tGrvAccarCoeffX,2"          
-# [70] "tGrvAccarCoeffX,3"           "tGrvAccarCoeffX,4"           "tGrvAccarCoeffY,1"          
-# [73] "tGrvAccarCoeffY,2"           "tGrvAccarCoeffY,3"           "tGrvAccarCoeffY,4"          
-# [76] "tGrvAccarCoeffZ,1"           "tGrvAccarCoeffZ,2"           "tGrvAccarCoeffZ,3"          
-# [79] "tGrvAccarCoeffZ,4"           "tGrvAccCorXY"                "tGrvAccCorXZ"               
-# [82] "tGrvAccCorYZ"                "tBdAccJerkMeanX"             "tBdAccJerkMeanY"            
-# [85] "tBdAccJerkMeanZ"             "tBdAccJerkStdX"              "tBdAccJerkStdY"             
-# [88] "tBdAccJerkStdZ"              "tBdAccJerkMedX"              "tBdAccJerkMedY"             
-# [91] "tBdAccJerkMedZ"              "tBdAccJerkMaxX"              "tBdAccJerkMaxY"             
-# [94] "tBdAccJerkMaxZ"              "tBdAccJerkMinX"              "tBdAccJerkMinY"             
-# [97] "tBdAccJerkMinZ"              "tBdAccJerkSma"               "tBdAccJerkErX"              
-# [100] "tBdAccJerkErY"               "tBdAccJerkErZ"               "tBdAccJerkIqrX"             
+# [21] "tBdAccErZ"                  
+# [22] "tBdAccIqrX"                  
+# [23] "tBdAccIqrY"                  
+# [24] "tBdAccIqrZ"                 
+# [25] "tBdAccEntropyX"             
+# [26] "tBdAccEntropyY"              
+# [27] "tBdAccEntropyZ"             
+# [28] "tBdAccarCoeffX,1"            
+# [29] "tBdAccarCoeffX,2"            
+# [30] "tBdAccarCoeffX,3"           
+# [31] "tBdAccarCoeffX,4"            
+# [32] "tBdAccarCoeffY,1"            
+# [33] "tBdAccarCoeffY,2"           
+# [34] "tBdAccarCoeffY,3"            
+# [35] "tBdAccarCoeffY,4"            
+# [36] "tBdAccarCoeffZ,1"           
+# [37] "tBdAccarCoeffZ,2"            
+# [38] "tBdAccarCoeffZ,3"            
+# [39] "tBdAccarCoeffZ,4"           
+# [40] "tBdAccCorXY"                 
+# [41] "tBdAccCorXZ"                 
+# [42] "tBdAccCorYZ"                
+# [43] "tGrvAccMeanX"                
+# [44] "tGrvAccMeanY"                
+# [45] "tGrvAccMeanZ"               
+# [46] "tGrvAccStdX"                 
+# [47] "tGrvAccStdY"                 
+# [48] "tGrvAccStdZ"                
+# [49] "tGrvAccMedX"                 
+# [50] "tGrvAccMedY"                 
+# [51] "tGrvAccMedZ"                
+# [52] "tGrvAccMaxX"                 
+# [53] "tGrvAccMaxY"                 
+# [54] "tGrvAccMaxZ"                
+# [55] "tGrvAccMinX"                 
+# [56] "tGrvAccMinY"                 
+# [57] "tGrvAccMinZ"                
+# [58] "tGrvAccSma"                  
+# [59] "tGrvAccErX"                  
+# [60] "tGrvAccErY"                 
+# [61] "tGrvAccErZ"  
+# [62] "tGrvAccIqrX"                
+# [63] "tGrvAccIqrY"                
+# [64] "tGrvAccIqrZ"                 
+# [65] "tGrvAccEntropyX"             
+# [66] "tGrvAccEntropyY"            
+# [67] "tGrvAccEntropyZ"            
+# [68] "tGrvAccarCoeffX,1"           
+# [69] "tGrvAccarCoeffX,2"          
+# [70] "tGrvAccarCoeffX,3"           
+# [71] "tGrvAccarCoeffX,4"           
+# [72] "tGrvAccarCoeffY,1"          
+# [73] "tGrvAccarCoeffY,2"           
+# [74] "tGrvAccarCoeffY,3"           
+# [75] "tGrvAccarCoeffY,4"          
+# [76] "tGrvAccarCoeffZ,1"           
+# [77] "tGrvAccarCoeffZ,2"           
+# [78] "tGrvAccarCoeffZ,3"          
+# [79] "tGrvAccarCoeffZ,4"           
+# [80]"tGrvAccCorXY"                
+# [81]"tGrvAccCorXZ"               
+# [82] "tGrvAccCorYZ"                
+# [83]"tBdAccJerkMeanX"             
+# [84]"tBdAccJerkMeanY"            
+# [85] "tBdAccJerkMeanZ"             
+# [86]"tBdAccJerkStdX"              
+# [87]"tBdAccJerkStdY"             
+# [88] "tBdAccJerkStdZ"              
+# [89]"tBdAccJerkMedX"              
+# [90]"tBdAccJerkMedY"             
+# [91] "tBdAccJerkMedZ"              
+# [92]"tBdAccJerkMaxX"              
+# [93]"tBdAccJerkMaxY"             
+# [94] "tBdAccJerkMaxZ"              
+# [95]"tBdAccJerkMinX"              
+# [96]"tBdAccJerkMinY"             
+# [97] "tBdAccJerkMinZ"              
+# [98]"tBdAccJerkSma"               
+# [99]"tBdAccJerkErX"              
+# [100] "tBdAccJerkErY"               
+# [101]"tBdAccJerkErZ"               
+# [102]"tBdAccJerkIqrX"             
 # [103] "tBdAccJerkIqrY"              "tBdAccJerkIqrZ"              "tBdAccJerkEntropyX"         
 # [106] "tBdAccJerkEntropyY"          "tBdAccJerkEntropyZ"          "tBdAccJerkarCoeffX,1"       
 # [109] "tBdAccJerkarCoeffX,2"        "tBdAccJerkarCoeffX,3"        "tBdAccJerkarCoeffX,4"       
