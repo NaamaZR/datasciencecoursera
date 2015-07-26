@@ -1,6 +1,6 @@
-<h1>CodeBook</h1>
-<h2>
-Data was downloaded: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+<h1>CodeBook by Naama Rubin</h1>
+<h3>
+Data was downloaded from: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 also called the "Samsung Data"
 </h2>
 
@@ -45,49 +45,56 @@ These signals were used to estimate variables of the feature vector for each pat
 '-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
 </p>
 
-<p>
+
+<h3>
 Signals at Time Domain:
-1)    tBdAcc-XYZ                Bd (Body) was extracted from  row tAcc, 3  cols
-2)    tGrvAcc-XYZ              Grv (Gravity) was extracted from row tAcc, 3 cols
-3)    tBdAccJerk-XYZ        diff elements in tBdAcc (1), 3 cols
-4)    tBdGyro-XYZ             is the row tGyro, 3 cols
-5)    tBdGyroJerk-XYZ      diff on  tBdGyro (4), 3 cols
-6)    tBdAccMag                   Euclidean norm on tBdAcc (1) all cols to get 1 col
-7)    tGrvAccMag                 Euclidean norm on tGrvAcc (2) all cols to get 1 col
-8)    tBdAccJerkMag           Euclidean norm  on tBdAccJerk  (3) all cols to get 1 col
-9)    tBdGyroMag                Euclidean norm  on tBdGyro  (4) all cols to get 1 col
-10)  tBdGyroJerkMag         Euclidean norm  on tBdGyroJerk (5) all cols to get 1 col
-</p>
+</h3>
+<ol>
+<li>   tBdAcc-XYZ              Bd (Body) was extracted from  row tAcc, 3  cols           </li> 
+<li>   tGrvAcc-XYZ             Grv (Gravity) was extracted from row tAcc, 3 cols         </li> 
+<li>   tBdAccJerk-XYZ          diff elements in tBdAcc (1), 3 cols                       </li> 
+<li>   tBdGyro-XYZ             is the row tGyro, 3 cols                                  </li> 
+<li>   tBdGyroJerk-XYZ         diff on  tBdGyro (4), 3 cols                              </li> 
+<li>   tBdAccMag               Euclidean norm on tBdAcc (1) all cols to get 1 col        </li> 
+<li>   tGrvAccMag              Euclidean norm on tGrvAcc (2) all cols to get 1 col       </li> 
+<li>   tBdAccJerkMag           Euclidean norm  on tBdAccJerk  (3) all cols to get 1 col  </li> 
+<li>   tBdGyroMag              Euclidean norm  on tBdGyro  (4) all cols to get 1 col     </li> 
+<li>   tBdGyroJerkMag          Euclidean norm  on tBdGyroJerk (5) all cols to get 1 col  </li> 
+</ol>
 
 <p>
 Fast Fourier Transform (FFT) was applied to some of these signals producing 
 fBdAcc-XYZ, fBdAccJerk-XYZ, fBdGyro-XYZ, fBdAccJerkMag, fBdGyroMag, fBdGyroJerkMag.
- (Note the 'f' to indicate frequency domain signals). 
-
-fBdAcc-XYZ                     fft on (1)
-fBdAccJerk-XYZ             fft on (3)
-fBdGyro-XYZ                  fft on (4)
-fBdAccMag                       fft on (6)
-fBdAccJerkMag               fft on (8)
-fBdGyroMag                     fft on (9)
-fBdGyroJerkMag             fft on (10)
-
+'f' is to indicate frequency domain signals. 
 </p>
+<h3>
+Signals at Frequency Domain:
+</h3>
+<ol>
+<li>fBdAcc-XYZ                 fft on (t 1)   </li> 
+<li>fBdAccJerk-XYZ             fft on (t 3)   </li> 
+<li>fBdGyro-XYZ                fft on (t 4)   </li> 
+<li>fBdAccMag                  fft on (t 6)   </li> 
+<li>fBdAccJerkMag              fft on (t 8)   </li> 
+<li>fBdGyroMag                 fft on (t 9)   </li> 
+<li>fBdGyroJerkMag             fft on (t 10)  </li> 
+</ol>
 
-
-<p>
+<h3>
 Measures that were calculated from these signals:
-mean 	Mean value                  
-std	Standard deviation
-median 	median, take 50% quantile
-max	Max value
-min	Minimum value
-sma	Signal magnitude area
-energy	 Energy measure. Sum of the squares divided by the number of values. 
-iqr	Interquartile range, 25% quantile to 75% quantile
-entropy	Signal entropy
-arCoeff	Autorregresion coefficients with Burg order equal to 4
-</p>
+</h3>
+<ol>
+<li>mean 	Mean value                                                           </li>               
+<li>std	        Standard deviation                                                   </li>
+<li>median 	Median, take 50% quantile                                            </li>
+<li>max	        Max value                                                            </li>
+<li>min	        Minimum value                                                        </li>
+<li>sma	        Signal Magnitude Area                                                </li>
+<li>energy	Energy measure. Sum of the squares divided by the number of values.  </li>
+<li>iqr	        Interquartile range, 25% quantile to 75% quantile                    </li>
+<li>entropy	Signal entropy                                                       </li>
+<li>arCoeff	Autorregresion coefficients with Burg order equal to 4               </li>
+</ol>
 
 <p>
 Measures that were calculated from freq domain siganls:
@@ -119,12 +126,12 @@ Two ID variables were added :
 "Activity"                             6 activities were labled:         "Walk", "WalkUpS", "WakDn", "Sit", "Stand", "Lay"   
 </p>
 
-<h1>
+<h4>
 The complete list of variables:
-</h1>
+</h4>
 # ## cols names
-# [1] "Subject"                              30 participents in expriment  were label by running ind from 1 to 30                 
-# [2] "Activity"                             6 activities were labled:         "Walk", "WalkUpS", "WakDn", "Sit", "Stand", "Lay"    
+# [1] "Subject"         30 participents in expriment  were label by running ind from 1 to 30                 
+# [2] "Activity"        6 activities were labled:         "Walk", "WalkUpS", "WakDn", "Sit", "Stand", "Lay"    
 # [3]  "tBdAccMeanX"                
 # [4] "tBdAccMeanY"                 
 # [5] "tBdAccMeanZ"                 
